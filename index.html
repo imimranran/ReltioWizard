@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Reltio Test Wizard</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+        <link rel="stylesheet" href="./mdl/material.min.css">
+        <script defer src="src/index.js" charset="utf-8"></script>
+        <style>
+            .material-icons {
+                font-family: 'Material Icons';
+                font-size: 18px;
+            }
+            .mdl-grid.center-items {
+                justify-content: center;
+            }
+            .mdl-layout__header>.mdl-layout-icon{
+                top: 20px;
+            }
+            .demo-list-control {
+                width: 300px;
+            }
+            .demo-list-radio {
+                display: inline;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Always shows a header, even in smaller screens. -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <header class="mdl-layout__header">
+            <div class="mdl-layout-icon"><img src="imgs/reltio-logo-full-color-rgb-72ppi.png"></div>
+            <div class="mdl-layout__header-row">
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer"></div>
+                <!-- Navigation. We hide it in small screens. -->
+                <nav class="mdl-navigation mdl-layout--large-screen-only">
+                    <div class="mdl-navigation__link"><button id="login-btn" class="mdl-button mdl-js-button">Login</button></div>
+                </nav>
+            </div>
+            </header>
+            <div class="mdl-layout__drawer">
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+            </nav>
+            </div>
+            <main class="mdl-layout__content">
+            <div class="page-content">
+            <!-- Your content goes here -->
+                <div class="mdl-grid">
+                    <div class="mdl-cell mdl-cell--2-col"></div>
+                    <div id="gs" class="mdl-cell mdl-cell--8-col">
+                        <h3>Hey</h3>
+                        <p>I'm the Reltio wizard. My job is to use Master Data Magic to make Reltio configuration magical. It will be easy. Are you ready?</p>
+                        <button id="gs-btn" class="mdl-button mdl-js-button mdl-button--primary">Get Started</button>
+                    </div>
+                    <div id="accel-select" class="mdl-cell mdl-cell--8-col" style="display:none;">
+                        <h3>Select your Accelerator</h3>
+                        <div id="accelerator-menu">
+                        	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<select class="mdl-textfield__input" id="accel-val">
+								  <option value="none">No Accelerator Selected</option>
+								  <option value="ls-cust-360">LS Customer 360</option>
+								  <option value="ls-prod-360">LS Product 360</option>
+								  <option value="ins-360">Insurance 360</option>
+								</select>
+							</div>
+                        </div>
+                        <button id="accel-next" type="button" class="mdl-button mdl-js-button mdl-button--primary">Next</button>
+                    </div>
+                    <div id="obj-select" class="mdl-cell mdl-cell--8-col" style="display:none;">
+                        <h3>Select your Entities</h3>
+                        <div id="obj-menu">
+                        	<ul class="demo-list-control mdl-list">
+							<li class="mdl-list__item">
+								<span class="mdl-list__item-primary-content">HCO</span>
+								<span class="mdl-list__item-secondary-action">
+									<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="entity-1">
+									<input type="checkbox" id="entity-1" class="mdl-switch__input" checked />
+									</label>
+								</span>
+							</li>
+							<li class="mdl-list__item">
+								<span class="mdl-list__item-primary-content">HCP</span>
+								<span class="mdl-list__item-secondary-action">
+									<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="entity-2">
+									<input type="checkbox" id="entity-2" class="mdl-switch__input" />
+									</label>
+								</span>
+							</li>
+							<li class="mdl-list__item">
+								<span class="mdl-list__item-primary-content">Location</span>
+								<span class="mdl-list__item-secondary-action">
+									<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="entity-3">
+									<input type="checkbox" id="entity-3" class="mdl-switch__input" />
+									</label>
+								</span>
+							</li>
+						</ul>
+                        </div>
+                        <button id="obj-next" type="button" class="mdl-button mdl-js-button mdl-button--primary">Next</button>
+                    </div>
+                    <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-tablet"></div>
+                </div>
+            </div>
+            </main>
+        </div>
+        <dialog class="mdl-dialog" id="login-dialog">
+        	<h4 class="mdl-dialog__title">Login to Reltio</h4>
+			<div class="mdl-dialog__content" >
+			  <p id="login-msg">
+				Provide Reltio credentials
+			  </p>
+			  <p>
+			  <form action="#">
+				  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="user-div">
+					<input class="mdl-textfield__input" type="text" id="user">
+					<label class="mdl-textfield__label" for="user">Username</label>
+				  </div>
+				  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="pw-div">
+					<input class="mdl-textfield__input" type="password" id="pw">
+					<label class="mdl-textfield__label" for="pw">Password</label>
+				  </div>
+				</form>
+			</div>
+			<div class="mdl-dialog__actions">
+			  <button type="button" class="mdl-button" id="login-submit">Login</button>
+			  <button type="button" class="mdl-button close" id="login-cancel">Cancel</button>
+			</div>
+	  </dialog>
+    </body>
+</html>
